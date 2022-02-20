@@ -1,0 +1,29 @@
+<div class="hi">Hi Buzz Bs!</div>
+
+<div class="stat">
+    <div class="subject-stat">
+        <div *ngFor="let tag of tagListFull | keyvalue">
+            <!--<span class="material-icons-round">{{tag.value}}</span>-->
+            <img src="{{tag.value}}">
+            <span>{{tag.key}}</span>
+            <span>{{tagList[tag.key]}} videos</span>
+            <div>
+                <span class="material-icons-round display-none">launch</span>
+                <img src="assets/mat-icons/launch_white_24dp.svg" (click)="tagNameParent = tag.key">
+            </div>
+        </div>
+    </div>
+
+    <div class="vid-num-stat">
+        <div>
+            <span>Total Videos</span>
+            <span>{{records.length}}</span>
+        </div>
+        <div *ngFor="let item of creditsList | keyvalue">
+            <span>{{item.key}}</span>
+            <span>{{item.value}}</span>
+        </div>
+    </div>
+</div>
+
+<app-tag-list [class.display-none]="tagNameParent == ''" [tagNameChild]="tagNameParent" (tagClose)="tagNameParent = $event;" class="overlay"></app-tag-list>

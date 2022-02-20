@@ -1,0 +1,17 @@
+.app-bar {
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    color: #9e223f;
+    cursor: default;
+
+    > div {
+        font-size: 3em;
+        margin: 0px 10px;
+
+        > img {
+            height: 60px;
+            width: auto;
+        }
+    }
+}

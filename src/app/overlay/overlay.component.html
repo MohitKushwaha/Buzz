@@ -1,0 +1,56 @@
+<div class="parent">
+    <div>
+        <div>
+            <video id="overlayVideo" controls>
+                <source src="" type="video/mp4">Incompatible Browser
+            </video>
+        </div>
+        <div>
+            <div>
+                <span class="material-icons-round display-none">close</span>
+                <img src="assets/mat-icons/close_white_64dp.svg" (click)="close();"></div>
+            <div>{{record.title}}</div>
+            <div>
+                <!--<span *ngIf="record.favourite; else unfav;" class="material-icons-round" (click)="changeFav();" title="Favourite">favorite</span>
+                <ng-template #unfav><span class="material-icons-round" (click)="changeFav();" title="Favourite">favorite_border</span></ng-template>-->
+                <img src="assets/mat-icons/favorite_red_32dp.svg" *ngIf="record.favourite; else unfav;" (click)="changeFav();" title="Favourite">
+                <ng-template #unfav><img src="assets/mat-icons/favorite_border_red_32dp.svg" (click)="changeFav();" title="Favourite"></ng-template>
+            </div>
+            <div>
+                Video Length
+                <span>{{(record.duration/60)/60 | number : '2.0-0'}}hrs : {{(record.duration/60)%60 | number : '2.0-0'}}mins : {{record.duration%60 | number : '2.0-0'}}sec</span>
+            </div>
+            <div>
+                <span *ngIf="record.tags.length == 0" class="gray-color">No tags attached</span>
+                <div *ngFor="let t of record.tags" class="back-color">
+                    <div>{{t}}</div>
+                </div>
+            </div>
+            <div>
+                <p>Description</p>
+                <span *ngIf="record.description.length == 0" class="gray-color">No description</span>
+                <div id="desc">
+                    {{record.description}}
+                </div>
+            </div>
+            <div>
+                <p>Credits</p>
+                <span *ngIf="record.author == '' && record.credits== ''" class="gray-color">Unknown</span>
+                <div>{{record.author}}<br>{{record.credits}}</div>
+            </div>
+            <div>
+                <div>
+                    <!--<span class="material-icons-round" title="Playlist">queue_music</span>-->
+                    <img src="assets/mat-icons/queue_music_white_24dp.svg" title="Playlist">
+                    <span>Playlists</span>
+                </div>
+                <div>
+                    <span *ngIf="profile.playlists && profile.playlists.length == 0" class="gray-color">No playlist created</span>
+                    <div *ngFor="let p of profile.playlists">
+                        <div [class.back-color]="record.playlists.indexOf(p) > -1" (click)="changePlaylist(p)" [attr.title]="record.playlists.indexOf(p) == -1 ? 'Add to {{p}}' : 'Remove from {{p}}'">{{p}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

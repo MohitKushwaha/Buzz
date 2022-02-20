@@ -1,0 +1,43 @@
+<div class="add_playlist">
+    <!--<span class="material-icons-round" title="Playlist">playlist_add</span>-->
+    <img src="assets/mat-icons/playlist_add_white_24dp.svg" title="Playlist">
+    <input id="playlist-title" type="text" placeholder="Create New Playlist">
+    <!--<span class="material-icons-round" title="Create Playlist" (click)="createPlaylist()">add_circle_outline</span>-->
+    <img src="assets/mat-icons/add_circle_outline_white_24dp.svg" title="Create Playlist" (click)="createPlaylist()">
+</div>
+<div class="res-msg">
+    <span *ngIf="playCode == 1">Playlist successfully created</span>
+    <span *ngIf="playCode == 2">Playlist already exists</span>
+</div>
+
+<div *ngFor="let p of profile.playlists" class="playlist">
+    <div>
+        <!--<div class="material-icons-round">movie</div>-->
+        <img src="assets/mat-icons/movie_black_24dp.svg">
+        <div>{{p}}</div>
+        <div>{{playlists[p] ? playlists[p] : 0}} videos</div>
+        <!--<div class="material-icons-round" (click)="deletePLaylist(p);" title="Delete Playlist">delete</div>-->
+        <img src="assets/mat-icons/delete_black_24dp.svg" (click)="deletePLaylist(p);" title="Delete Playlist">
+    </div>
+    <div *ngIf="playlists[p] && playlists[p] > 0">
+        <div>
+            <ng-container *ngFor="let r of records">
+                <div *ngIf="r.playlists.indexOf(p) > -1">
+                    <video controls preload="auto">
+                        <source src="{{r.url}}" type="video/mp4">Incompatible Browser
+                    </video>
+                    <div>
+                        <div>{{r.title}}</div>
+                        <div>
+                            <span class="material-icons-round display-none" (click)="Backend.pauseVids(); Backend.setOverlayData(r);">launch</span>
+                            <img src="assets/mat-icons/launch_white_24dp.svg" (click)="Backend.pauseVids(); Backend.setOverlayData(r);">
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <span  *ngIf="!(playlists[p] > 0)" class="gray-color">No videos found</span>
+</div>
+
+<app-overlay [class.display-none]="!(overlayData.url && overlayData.url.length > 0)" class="overlay"></app-overlay>

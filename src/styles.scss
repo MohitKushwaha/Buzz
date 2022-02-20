@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+/* bitter-300 - latin */
+@font-face {
+    font-family: 'Bitter';
+    font-style: normal;
+    font-weight: 300;
+    src: url('assets/fonts/bitter-v19-latin-300.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('assets/fonts/bitter-v19-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('assets/fonts/bitter-v19-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+         url('assets/fonts/bitter-v19-latin-300.woff') format('woff'), /* Modern Browsers */
+         url('assets/fonts/bitter-v19-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('assets/fonts/bitter-v19-latin-300.svg#Bitter') format('svg'); /* Legacy iOS */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: 'Bitter', serif;
+}
+
+body {
+    position: relative;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-block {
+    display: block;
+}
+
+.page-heading {
+    padding: 10px;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: default;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    overflow: hidden;
+}
+
+.gray-color {
+    color: gray;
+}
+
+
+/* width */
+* > ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+}
+
+/* Track */
+* > ::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* Handle */
+* > ::-webkit-scrollbar-thumb {
+    background: #666666;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+* > ::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+}

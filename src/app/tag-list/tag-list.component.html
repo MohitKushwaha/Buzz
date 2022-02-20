@@ -1,0 +1,27 @@
+<div class="tagList">
+    <div>
+        <div>
+            <span class="material-icons-round display-none">close</span>
+            <img src="assets/mat-icons/close_white_64dp.svg" (click)="close()">
+        </div>
+        <div>videos with tag</div>
+        <div>{{tagNameChild}}</div>
+    </div>
+    <div>
+        <ng-container *ngFor="let r of records">
+            <div *ngIf="r.tags.indexOf(tagNameChild) > -1">
+                <video controls>
+                    <source src={{r.url}} type="video/mp4">Incompatible Browser
+                </video>
+                <div>{{r.title}}</div>
+                <div>
+                    <span class="material-icons-round display-none">launch</span>
+                    <img src="assets/mat-icons/launch_white_24dp.svg" (click)="Backend.pauseVids(); Backend.setOverlayData(r);">
+                </div>
+            </div>
+        </ng-container>
+        <span *ngIf="noVideoFlag">No videos found</span>
+    </div>
+</div>
+
+<app-overlay [class.display-none]="!(overlayData.url && overlayData.url.length > 0)" class="overlay"></app-overlay>

@@ -1,0 +1,13 @@
+<div class="set-field">User Id: <span>(auto generated)</span></div>
+<div class="set-value"><input class="readonly" type="text" placeholder="User Id" value="{{profile.userId}}" readonly></div>
+<div class="set-field">Username:</div>
+<div class="set-value"><input id="username" type="text" placeholder="Username" value="{{profile.username}}" (change)="updateVisi = true;"></div>
+<div class="set-field">Organisation:</div>
+<div class="set-value"><input id="organisation" type="text" placeholder="Organisation" value="{{profile.organisation}}" (change)="updateVisi = true;"></div>
+<div [class.display-none]="!updateVisi" class="set-button"><button (click)="update();">Update</button></div>
+<div *ngIf="updSuccess" class="update-msg">Successfully Updated!</div>
+
+<div class="exit">
+    <div class="material-icons-round">exit_to_app</div>
+    <div>Exit</div>
+</div>

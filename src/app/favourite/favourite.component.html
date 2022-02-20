@@ -1,0 +1,21 @@
+<div class="fav">
+    <ng-container *ngFor="let r of records">
+        <div *ngIf="r.favourite">
+            <div (click)="Backend.setOverlayData(r);">
+                <video>
+                    <source src={{r.url}} type="video/mp4">Incompatible Browser
+                </video>
+            </div>
+            <div>
+                <div>
+                    <span class="material-icons-round display-none" (click)="changeFav(r.url);" title="Favourite">favorite</span>
+                    <img src="assets/mat-icons/favorite_red_24dp.svg" (click)="changeFav(r.url);" title="Favourite">
+                </div>
+                <div>{{r.title}}</div>
+            </div>
+        </div>
+    </ng-container>
+    <span *ngIf="!favExists" class="gray-color">No videos found</span>
+</div>
+
+<app-overlay [class.display-none]="!(overlayData.url && overlayData.url.length > 0)" class="overlay"></app-overlay>

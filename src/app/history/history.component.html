@@ -1,0 +1,62 @@
+<div class="history-calender">
+    <div>
+        <div>Current Session</div>
+        <div>started at:<span>{{Backend.sessionDate | date : 'hh:mm a'}}</span> on {{Backend.sessionDate | date : 'MMM d, y'}}</div>
+        <div>running for:<span>{{(dateVal/60)/60 | number : '1.0-0'}}hrs {{(dateVal/60)%60 | number : '1.0-0'}}mins</span></div>
+    </div>
+    <div>
+        <div>{{curDate | date : 'hh:mm:ss'}}</div>
+        <div>{{curDate | date : 'a' | slice:0:1}}<br>{{curDate | date : 'a' | slice:1:2}}</div>
+        <div>{{curDate | date : 'EEE, d MMM y'}}</div>
+    </div>
+</div>
+
+<div class="page-heading">Recently Played</div>
+<div class="history-latest">
+    <div>
+        <ng-container *ngFor="let h of latestHistory">
+            <div class="latest-card">
+                <div>
+                    <video>
+                        <source src="{{h.url}}" type="video/mp4">Incompatible Browser
+                    </video>
+                </div>
+                <div>
+                    <div>{{historyData[h.url].title}}</div>
+                    <div><span>last played at :</span>{{h.milli | date : 'hh:mm:ss a'}}</div>
+                    <div>{{h.milli | date : 'MMM d, y'}}</div>
+                    <div>
+                        <span class="material-icons-round display-none" (click)="Backend.pauseVids(); Backend.setOverlayData(historyData[h.url]);">launch</span>
+                        <img src="assets/mat-icons/launch_white_24dp.svg" (click)="Backend.pauseVids(); Backend.setOverlayData(historyData[h.url]);">
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <span *ngIf="history.length == 0" class="emp-history gray-color">Empty History</span>
+    </div>
+</div>
+
+<div class="card">
+    <div class="page-heading">Full History</div>
+    <ng-container *ngFor="let h of history; let indexOfEle = index">
+        <div [style.order]="50-indexOfEle" class="history-card">
+            <video (click)="Backend.pauseVids(); Backend.setOverlayData(historyData[h.url]);">
+                <source src="{{h.url}}" type="video/mp4">Incompatible Browser
+            </video>
+            <div (click)="Backend.pauseVids(); Backend.setOverlayData(historyData[h.url]);">
+                <span>{{historyData[h.url].title}}</span>
+                <span>{{historyData[h.url].description}}</span>
+            </div>
+            <div>
+                <span>last played at :</span>
+                <span>{{h.milli | date : 'hh:mm:ss a, MMM d, y'}}</span>
+            </div>
+            <div>
+                <div *ngFor="let t of historyData[h.url].tags">{{t}}</div>
+            </div>
+        </div>
+    </ng-container>
+    <span *ngIf="history.length == 0" class="emp-history gray-color">Empty History</span>
+</div>
+
+<app-overlay [class.display-none]="!(overlayData.url && overlayData.url.length > 0)" class="overlay"></app-overlay>

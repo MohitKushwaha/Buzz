@@ -1,0 +1,201 @@
+.history-calender {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 1.5em;
+    cursor: default;
+
+    > div:nth-child(1) {
+        padding: 20px;
+
+        > div:nth-child(1) {
+            justify-self: center;
+        }
+        
+        > div:nth-child(2) > span, div:nth-child(3) > span {
+            padding: 0px 10px;
+            font-size: 2em;
+        }
+    }
+
+    > div:nth-child(2) {
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+
+        > div:nth-child(1) {
+            font-size: 4em;
+            justify-self: end;
+            align-self: center;
+        }
+
+        > div:nth-child(2) {
+            padding: 5px;
+            align-self: center;
+        }
+
+        > div:nth-child(3) {
+            grid-column: 1/3;
+            justify-self: end;
+            font-size: 1.5em;
+        }
+    }
+}
+
+.history-latest {
+    position: relative;
+
+    > div {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        overflow-x: scroll;
+    }
+}
+
+.latest-card {
+    margin: 20px;
+    background-color: #000000;
+    color: #FFFFFF;
+    text-align: right;
+    position: relative;
+    align-self: end;
+
+    video {
+        height: 200px;
+        min-width: 200px;
+        cursor: pointer;
+    }
+
+    > div:nth-child(2) {
+        position: absolute;
+        padding: 20% 10px 10px 10px;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        z-index: 2;
+        background-image: linear-gradient(0deg, #000000, transparent);
+        color: transparent;
+        cursor: default;
+
+        &:hover {
+            background-image: linear-gradient(0deg, #000000, #000000c7, transparent);
+            color: #FFFFFF;
+
+            /*remove below, only for mat-icons img*/
+            > div:nth-child(4) > img {
+                opacity: 1;
+            }
+        }
+        > div {
+            text-align: right;
+        }
+
+        > div:nth-child(1) {
+            font-size: 1.5em;
+        }
+
+        > div:nth-child(2), div:nth-child(3) {
+            font-size: 1.1em;
+
+            > span {
+                font-size: 0.9em;
+                padding-right: 10px;
+            }
+        }
+
+        > div:nth-child(4) > span, > div:nth-child(4) > img {
+            cursor: pointer;
+        }
+
+        /*remove below, only for mat-icons img*/
+        > div:nth-child(4) > img {
+            opacity: 0;
+        }
+    }
+}
+
+.card {
+     margin-top: 300px;
+     margin-bottom: 50px;
+     display: grid;
+     grid-template-columns: 1fr;
+}
+
+.history-card {
+    margin: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr 2fr;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.6);
+    cursor: default;
+
+    &:hover {
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.8);
+    }
+
+    > video {
+        height: 100%;
+        max-height: 150px;
+        width: 100%;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: 0px 0px 5px 4px rgb(0 0 0 / 60%);
+        }
+    }
+
+    > div {
+        padding: 10px;
+    }
+
+    > div:nth-of-type(1) {
+        cursor: pointer;
+        justify-self: start;
+        
+        > span {
+            display: block;
+        }
+    }
+
+    > div:nth-of-type(1) > span:nth-child(1) {
+        font-size: 1.2em;
+        font-size: bold;
+    }
+
+    > div:nth-of-type(1) > span:nth-child(2) {
+        max-width: 200px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    > div:nth-of-type(2) {
+        align-self: end;
+
+        > span {
+            display: block;
+        }
+    }
+
+    > div:nth-of-type(3) {
+        align-self: end;
+
+        > div {
+            font-size: 0.9em;
+            display: inline-block;
+            border-radius: 20px;
+            margin: 2px 5px;
+            padding: 2px 5px;
+            background-color: #EEA620;
+            color: #FFFFFF;
+        }
+    }
+}
+
+
+.emp-history {
+    margin: 20px;
+}

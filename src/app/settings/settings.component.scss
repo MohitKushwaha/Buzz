@@ -1,0 +1,74 @@
+.set-field {
+    margin: 10px 50px;
+    cursor: default;
+}
+
+.set-value {
+    margin: 0px 50px 50px 50px;
+    
+    > input {
+        padding: 5px;
+        font-size: 1.5em;
+        border: none;
+        border-bottom: 2px solid #888888;
+        min-width: 50%;
+    }
+}
+
+.set-button {
+    margin: 50px;
+
+    > button {
+        font-size: 1.5em;
+        border: none;
+        border-radius: 5px;
+        background: #37CB95;
+        color: #FFFFFF;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    :hover {
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.6);
+    }
+}
+
+.readonly {
+    color: #888888;
+    cursor: default;
+}
+
+.update-msg {
+    font-size: 1.2em;
+    margin: 10px 50px;
+    color: #9e223f;
+    font-weight: bold;
+}
+
+.exit {
+    display: none;
+    /*display: grid;*/
+    grid-template-columns: 1fr auto;
+    font-size: 2em;
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+    color: #9e223f;
+    
+    > div {
+        margin: 5px;
+    }
+
+    > div:nth-child(1) {
+        align-self: center;
+    }
+
+    > div:nth-child(2) {
+        align-self: center;
+    }
+}
+.exit:hover {
+    > div {
+        font-weight: bold;
+    }
+}

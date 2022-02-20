@@ -1,0 +1,134 @@
+.parent {
+    color: #FFFFFF;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #000000;
+
+    > div {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        height: 100%;
+
+        > div:nth-child(1) > video {
+            max-width: 100%;
+            max-height: 100%;
+            position: sticky;
+            top: 0px;
+            left: 0px;
+        }
+
+        > div:nth-child(2) {
+            margin-left: 10px;
+            cursor: default;
+            
+            > div:nth-child(1) {
+                text-align: right;
+                position: sticky;
+                top: 0px;
+                right: 0px;
+                background-color: rgba(0, 0, 0, 0.6);
+                background-image: linear-gradient(180deg, #000000, transparent);
+
+                > span, > img {
+                    padding: 10px;
+                    cursor: pointer;
+                    font-size: 4em;
+                    font-weight: bold;
+                }
+            }
+
+            > div:nth-child(2) {
+                font-size: 2em;
+            }
+
+            > div:nth-child(3) {
+                text-align: right;
+                padding: 0px 20px;
+
+                > span {
+                    cursor: pointer;
+                    font-size: 2em;
+                }
+            }
+
+            > div:nth-child(4) {
+                padding: 5px 0px;
+
+                > span {
+                    padding: 0px 10px;
+                }
+            }
+
+            > div:nth-child(5) {
+                margin: 5px;
+
+                > div {
+                    margin: 2px;
+                    padding: 2px 5px;
+                    font-size: 0.8em;
+                    border: 2px solid #FFFFFF;
+                    color: #fff;
+                    border-radius: 10px;
+                    display: inline-block;
+                    cursor: default;
+                }
+            }
+
+            > div:nth-child(6) {
+                padding: 20px 20px 20px 0px;
+
+                > div {
+                    font-size: 1.2em;
+                }
+            }
+
+            > div:nth-child(7) {
+                padding: 20px 0px;
+
+                > div {
+                    font-size: 1.5em;
+                }
+            }
+
+            > div:nth-child(8) {
+                > div:nth-child(1) {
+                    display: grid;
+                    grid-template-columns: auto 1fr;
+
+                    > span {
+                        align-self: center;
+                        font-size: 1.2em;
+                    }
+
+                    > span:nth-child(2) {
+                        justify-self: start;
+                        padding: 0px 5px;
+                    }
+                }
+
+                > div:nth-child(2) {
+                    padding-bottom: 50px;
+
+                    > div {
+                        display: inline-block;
+
+                        > div {
+                            margin: 5px;
+                            padding: 5px 10px;
+                            border: 2px solid #FFFFFF;
+                            color: #FFFFFF;
+                            border-radius: 10px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.back-color {
+    background-color: #eea620;
+}

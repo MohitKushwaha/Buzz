@@ -1,0 +1,16 @@
+<div class="page-heading">/Repository</div>
+<div class="route-vids">
+    <div *ngFor="let r of records">
+        <video controls>
+            <source src="{{r.url}}" type="video/mp4">Incompatible Browser
+        </video>
+        <div>{{r.title}}</div>
+        <div>
+            <span class="material-icons-round display-none" (click)="Backend.pauseVids(); Backend.setOverlayData(r);">launch</span>
+            <img src="assets/mat-icons/launch_white_24dp.svg" (click)="Backend.pauseVids(); Backend.setOverlayData(r);">
+        </div>
+    </div>
+    <span *ngIf="records.length == 0" class="gray-color">No videos found</span>
+</div>
+
+<app-overlay [class.display-none]="!(overlayData.url && overlayData.url.length > 0)" class="overlay"></app-overlay>
